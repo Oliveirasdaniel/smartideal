@@ -1,0 +1,11 @@
+# arquivos de teste e do editor
+.playwright-mcp/
+.vscode/
+
+# versões antigas do site (ficam só no computador)
+versoes/
+
+# arquivos do sistema
+Thumbs.db
+desktop.ini
+.DS_Store

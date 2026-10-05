@@ -1,0 +1,8 @@
+Coloque aqui os vídeos do site.
+
+Formato recomendado: MP4 (H.264), na horizontal ou vertical.
+Tamanho: até uns 10 MB por vídeo, para o site carregar rápido no celular.
+Use nomes simples, sem acento nem espaço. Exemplos:
+  bancada-reparo-placa.mp4
+  troca-de-tela.mp4
+  fachada-loja-tindiba.mp4

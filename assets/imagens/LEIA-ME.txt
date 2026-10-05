@@ -1,0 +1,10 @@
+Coloque aqui as fotos do site (JPG ou PNG).
+
+LOGO: salve a logo da loja nesta pasta com o nome  logo  (pode ser logo.png, logo.jpg ou logo.webp).
+Ela aparece sozinha no cabeçalho, no rodapé e como ícone da aba (favicon).
+
+Use nomes simples, sem acento nem espaço. Exemplos:
+  logo.png
+  fachada-loja-tindiba-2395.jpg
+  bancada-microscopio.jpg
+  troca-de-tela.jpg
