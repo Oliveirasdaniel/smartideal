@@ -780,33 +780,6 @@ if (reduzirMovimento) {
   });
 }
 
-/* ---------- logo oficial: usa assets/imagens/logo.png quando existir ---------- */
-
-// aceita logo.png, logo.jpg, logo.jpeg ou logo.webp; a mesma imagem vira o favicon
-// da aba e o ícone ao salvar o site na tela do celular
-const NOMES_DA_LOGO = ["logo.png", "logo.jpg", "logo.jpeg", "logo.webp"];
-
-function usarLogo(src) {
-  document.querySelectorAll(".logo-badge").forEach((img) => (img.src = src));
-  document.querySelectorAll(".logo, .footer-brand").forEach((el) => el.classList.add("has-badge"));
-
-  const favicon = document.querySelector('link[rel="icon"]');
-  favicon.removeAttribute("type");
-  favicon.href = src;
-  const icone = document.createElement("link");
-  icone.rel = "apple-touch-icon";
-  icone.href = src;
-  document.head.appendChild(icone);
-}
-
-(function procurarLogo(i) {
-  if (i >= NOMES_DA_LOGO.length) return;
-  const teste = new Image();
-  teste.onload = () => usarLogo(teste.src);
-  teste.onerror = () => procurarLogo(i + 1);
-  teste.src = `assets/imagens/${NOMES_DA_LOGO[i]}`;
-})(0);
-
 /* ---------- lojas: mapa e loja mais perto ---------- */
 
 const lojas = [...document.querySelectorAll("#store-list .store")];
