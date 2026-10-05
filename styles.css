@@ -984,6 +984,7 @@ h1 {
 .tabs {
   display: flex;
   gap: 4px;
+  min-width: 0; /* fieldset estica até caber tudo por padrão; sem isso não rola no celular */
   margin: 0;
   padding: 0 16px;
   border: 0;
