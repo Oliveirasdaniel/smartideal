@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Smart Ideal | Conserto de celular e acessórios no Rio de Janeiro</title>
   <meta name="description" content="Centro de Soluções Smart Ideal: troca de tela, bateria, reparo em placa e restauração de software para Apple, Samsung, Motorola e LG. Películas, capas, carregadores, cabos e fones. Estrada do Tindiba, Rio de Janeiro.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#f3eadb">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Smart Ideal | Conserto de celular e acessórios no Rio de Janeiro">
@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="assets/imagens/logo-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -74,7 +74,7 @@
 
   <!-- barra de aviso -->
   <div class="announce">
-    <p class="wrap">Orçamento sem compromisso. <a data-wa href="https://wa.me/5521967063243">Falar no WhatsApp</a></p>
+    <p class="wrap">Orçamento sem compromisso. <a class="announce-wa" data-wa href="https://wa.me/5521967063243"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Falar no WhatsApp</a></p>
   </div>
 
   <header class="site-header">
@@ -103,21 +103,10 @@
   <main id="conteudo">
     <!-- ============ HERO ============ -->
     <section class="hero" id="inicio">
-      <!-- nebulosa roxa e azul atrás de todo o hero -->
-      <div class="hero-sky" aria-hidden="true">
-        <canvas class="hero-nebula" id="hero-nebula"></canvas>
-        <canvas class="hero-stars" id="hero-stars"></canvas>
-      </div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <h1>Conserto de celular com precisão de laboratório.</h1>
+          <h1>Conserto de celular na Taquara.</h1>
           <p class="hero-sub">Tela, bateria, reparo em placa e restauração de software para Apple, Samsung, Motorola e LG. Três lojas no Rio de Janeiro.</p>
-
-          <form class="hero-form" id="hero-form">
-            <label class="sr-only" for="hero-modelo">Modelo do seu celular</label>
-            <input class="input" id="hero-modelo" type="text" autocomplete="off" placeholder="Modelo do celular, ex.: iPhone 13">
-            <button class="btn btn-ember" type="submit">Pedir orçamento</button>
-          </form>
 
           <a class="ghost-link" href="#lojas">
             <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
@@ -211,12 +200,12 @@
     <!-- ============ MARCAS ============ -->
     <section class="band" aria-labelledby="marcas-title">
       <div class="wrap">
-        <h2 class="band-title" id="marcas-title">Especialistas nas marcas que você usa</h2>
+        <h2 class="band-title" id="marcas-title">Consertamos as marcas que você usa</h2>
         <ul class="brands">
-          <li>Apple</li>
-          <li>Samsung</li>
-          <li>Motorola</li>
-          <li>LG</li>
+          <li><svg class="brand-logo" role="img" aria-label="Apple"><use href="#i-apple"/></svg><span>iPhone</span></li>
+          <li><svg class="brand-logo brand-logo-wide" role="img" aria-label="Samsung"><use href="#i-samsung"/></svg><span>Galaxy</span></li>
+          <li><svg class="brand-logo" role="img" aria-label="Motorola"><use href="#i-motorola"/></svg><span>Moto</span></li>
+          <li><svg class="brand-logo brand-logo-lg" role="img" aria-label="LG"><use href="#i-lg"/></svg><span>LG</span></li>
         </ul>
       </div>
     </section>
@@ -251,10 +240,10 @@
               <fieldset class="field-group">
                 <legend class="field-label">Marca</legend>
                 <div class="chips">
-                  <label class="chip"><input type="radio" name="marca" value="Apple" checked><span>Apple</span></label>
-                  <label class="chip"><input type="radio" name="marca" value="Samsung"><span>Samsung</span></label>
-                  <label class="chip"><input type="radio" name="marca" value="Motorola"><span>Motorola</span></label>
-                  <label class="chip"><input type="radio" name="marca" value="LG"><span>LG</span></label>
+                  <label class="chip"><input type="radio" name="marca" value="Apple" checked><span><svg class="chip-logo" aria-hidden="true"><use href="#i-apple"/></svg>Apple</span></label>
+                  <label class="chip"><input type="radio" name="marca" value="Samsung"><span><svg class="chip-logo chip-logo-wide" aria-hidden="true"><use href="#i-samsung"/></svg><span class="sr-only">Samsung</span></span></label>
+                  <label class="chip"><input type="radio" name="marca" value="Motorola"><span><svg class="chip-logo" aria-hidden="true"><use href="#i-motorola"/></svg>Motorola</span></label>
+                  <label class="chip"><input type="radio" name="marca" value="LG"><span><svg class="chip-logo chip-logo-lg" aria-hidden="true"><use href="#i-lg"/></svg><span class="sr-only">LG</span></span></label>
                 </div>
               </fieldset>
 
@@ -268,8 +257,8 @@
                 <p id="msg-preview">Olá, Smart Ideal! Tenho um iPhone e a tela está quebrada ou com defeito. Podem me passar um orçamento?</p>
               </div>
 
-              <a class="btn btn-ember btn-block" id="send" href="https://wa.me/5521967063243" target="_blank" rel="noopener">
-                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+              <a class="btn btn-wa btn-block" id="send" href="https://wa.me/5521967063243" target="_blank" rel="noopener">
+                <svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
                 <span>Enviar no WhatsApp</span>
               </a>
             </div>
@@ -339,8 +328,8 @@
             <div class="shop-art"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="6" width="22" height="38" rx="5"/><rect x="10" y="3" width="22" height="38" rx="5"/></svg></div>
             <h3>Películas</h3>
             <p>Proteção para a tela do seu iPhone, Galaxy, Moto ou LG.</p>
-            <a class="ghost-link" data-wa data-wa-text="Olá, Smart Ideal! Quero uma película para o meu celular. Quais vocês têm?" href="https://wa.me/5521967063243">
-              <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+            <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Quero uma película para o meu celular. Quais vocês têm?" href="https://wa.me/5521967063243">
+              <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Perguntar por películas
             </a>
           </li>
@@ -348,8 +337,8 @@
             <div class="shop-art"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="14" width="24" height="20" rx="4"/><path d="M19 14V6M29 14V6M24 34v5a4 4 0 0 0 4 4h8M25 18l-4 6h6l-4 6"/></svg></div>
             <h3>Carregadores e cabos</h3>
             <p>Carregadores e cabos USB-C, Lightning e micro-USB.</p>
-            <a class="ghost-link" data-wa data-wa-text="Olá, Smart Ideal! Procuro carregador ou cabo para o meu celular. O que vocês têm?" href="https://wa.me/5521967063243">
-              <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+            <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Procuro carregador ou cabo para o meu celular. O que vocês têm?" href="https://wa.me/5521967063243">
+              <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Perguntar por carregadores
             </a>
           </li>
@@ -357,8 +346,8 @@
             <div class="shop-art"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="4" width="24" height="40" rx="7"/><rect x="16" y="8" width="16" height="32" rx="4"/><circle cx="21" cy="13" r="2"/></svg></div>
             <h3>Capas</h3>
             <p>Para proteger o aparelho de quedas e arranhões.</p>
-            <a class="ghost-link" data-wa data-wa-text="Olá, Smart Ideal! Vocês têm capa para o meu modelo?" href="https://wa.me/5521967063243">
-              <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+            <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Vocês têm capa para o meu modelo?" href="https://wa.me/5521967063243">
+              <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Perguntar por capas
             </a>
           </li>
@@ -366,8 +355,8 @@
             <div class="shop-art"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30v-6a14 14 0 0 1 28 0v6"/><rect x="7" y="28" width="8" height="13" rx="3"/><rect x="33" y="28" width="8" height="13" rx="3"/></svg></div>
             <h3>Fones</h3>
             <p>Fones de ouvido para o dia a dia.</p>
-            <a class="ghost-link" data-wa data-wa-text="Olá, Smart Ideal! Quero saber quais fones vocês têm." href="https://wa.me/5521967063243">
-              <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+            <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Quero saber quais fones vocês têm." href="https://wa.me/5521967063243">
+              <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
               Perguntar por fones
             </a>
           </li>
@@ -375,39 +364,8 @@
       </div>
     </section>
 
-    <!-- ============ COMO FUNCIONA ============ -->
-    <section class="section" id="como-funciona" aria-labelledby="como-title">
-      <div class="wrap">
-        <header class="section-head">
-          <h2 class="h2" id="como-title">Como funciona</h2>
-        </header>
-        <ol class="steps">
-          <li class="step">
-            <span class="step-n">1</span>
-            <h3>Fale com a gente</h3>
-            <p>Mande mensagem no WhatsApp ou traga o aparelho em uma das nossas lojas.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">2</span>
-            <h3>Diagnóstico e orçamento</h3>
-            <p>Avaliamos o celular e passamos o valor e o prazo antes de mexer em qualquer coisa.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">3</span>
-            <h3>Conserto</h3>
-            <p>Só começamos com a sua aprovação e avisamos pelo WhatsApp quando estiver pronto.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">4</span>
-            <h3>Retirada com garantia</h3>
-            <p>O aparelho sai testado e com 90 dias de garantia no serviço.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
     <!-- ============ LOJAS (mapa + loja mais perto) ============ -->
-    <section class="section section-fog" id="lojas" aria-labelledby="lojas-title">
+    <section class="section" id="lojas" aria-labelledby="lojas-title">
       <div class="wrap">
         <header class="section-head">
           <h2 class="h2" id="lojas-title">Encontre a loja mais perto</h2>
@@ -432,7 +390,7 @@
                   <span class="store-tags" hidden><span class="tag store-near" hidden>Mais perto de você</span><span class="tag store-dist" hidden></span></span>
                 </button>
                 <a class="ghost-link store-route" target="_blank" rel="noopener">
-                  <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+                  <svg class="ghost-ico" aria-hidden="true"><use href="#i-pin"/></svg>
                   Como chegar<span class="sr-only"> na loja da Estrada do Tindiba, 2395</span>
                 </a>
               </li>
@@ -443,7 +401,7 @@
                   <span class="store-tags" hidden><span class="tag store-near" hidden>Mais perto de você</span><span class="tag store-dist" hidden></span></span>
                 </button>
                 <a class="ghost-link store-route" target="_blank" rel="noopener">
-                  <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+                  <svg class="ghost-ico" aria-hidden="true"><use href="#i-pin"/></svg>
                   Como chegar<span class="sr-only"> na loja da Estrada do Tindiba, 1983</span>
                 </a>
               </li>
@@ -454,7 +412,7 @@
                   <span class="store-tags" hidden><span class="tag store-near" hidden>Mais perto de você</span><span class="tag store-dist" hidden></span></span>
                 </button>
                 <a class="ghost-link store-route" target="_blank" rel="noopener">
-                  <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+                  <svg class="ghost-ico" aria-hidden="true"><use href="#i-pin"/></svg>
                   Como chegar<span class="sr-only"> na loja da Rua Apiacás, 490</span>
                 </a>
               </li>
@@ -467,24 +425,18 @@
           </div>
         </div>
 
-        <div class="card contact">
-          <dl class="contact-list">
-            <div>
-              <dt>WhatsApp</dt>
-              <dd><a data-wa href="https://wa.me/5521967063243">(21) 96706-3243</a></dd>
-            </div>
-            <div>
-              <dt>E-mail</dt>
-              <dd><a href="mailto:idealrio@gmail.com">idealrio@gmail.com</a></dd>
-            </div>
-            <div>
-              <dt>Instagram</dt>
-              <dd><a href="https://www.instagram.com/smart.ideal.oficial/" target="_blank" rel="noopener">@smart.ideal.oficial</a></dd>
-            </div>
-          </dl>
-          <a class="btn btn-ember" data-wa href="https://wa.me/5521967063243">
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-            <span>Chamar no WhatsApp</span>
+        <div class="contact">
+          <a class="contact-item" data-wa href="https://wa.me/5521967063243">
+            <span class="contact-tile tile-wa"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+            <span><small>WhatsApp</small><strong>(21) 96706-3243</strong></span>
+          </a>
+          <a class="contact-item" href="mailto:idealrio@gmail.com">
+            <span class="contact-tile tile-gmail"><svg aria-hidden="true"><use href="#i-gmail"/></svg></span>
+            <span><small>E-mail</small><strong>idealrio@gmail.com</strong></span>
+          </a>
+          <a class="contact-item" href="https://www.instagram.com/smart.ideal.oficial/" target="_blank" rel="noopener">
+            <span class="contact-tile tile-ig"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span>
+            <span><small>Instagram</small><strong>@smart.ideal.oficial</strong></span>
           </a>
         </div>
       </div>
@@ -520,9 +472,9 @@
           <div>
             <h3>Contato</h3>
             <ul>
-              <li><a data-wa href="https://wa.me/5521967063243">(21) 96706-3243</a></li>
-              <li><a href="mailto:idealrio@gmail.com">idealrio@gmail.com</a></li>
-              <li><a href="https://www.instagram.com/smart.ideal.oficial/" target="_blank" rel="noopener">@smart.ideal.oficial</a></li>
+              <li><a class="foot-contact" data-wa href="https://wa.me/5521967063243"><svg class="foot-ico ico-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>(21) 96706-3243</a></li>
+              <li><a class="foot-contact" href="mailto:idealrio@gmail.com"><svg class="foot-ico ico-gmail" aria-hidden="true"><use href="#i-gmail"/></svg>idealrio@gmail.com</a></li>
+              <li><a class="foot-contact" href="https://www.instagram.com/smart.ideal.oficial/" target="_blank" rel="noopener"><svg class="foot-ico ico-ig" aria-hidden="true"><use href="#i-instagram"/></svg>@smart.ideal.oficial</a></li>
             </ul>
           </div>
         </div>
@@ -538,14 +490,19 @@
   <!-- botão flutuante do WhatsApp -->
   <a class="wa-float" data-wa href="https://wa.me/5521967063243" aria-label="Conversar no WhatsApp">
     <span class="wa-float-label" aria-hidden="true">Fale com a gente no WhatsApp</span>
-    <svg class="wa-float-ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+    <svg class="wa-float-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 
-  <!-- ícones -->
+  <!-- ícones (logos das marcas e dos apps: Simple Icons) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="i-wa" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/>
-    </symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+    <symbol id="i-gmail" viewBox="0 3 24 18"><path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+    <symbol id="i-samsung" viewBox="0 10.17 24 3.67"><path fill="currentColor" d="M19.8166 10.2808l.0459 2.6934h-.023l-.7793-2.6934h-1.2837v3.3925h.8481l-.0458-2.785h.023l.8366 2.785h1.2264v-3.3925zm-16.149 0l-.6418 3.427h.9284l.4699-3.1175h.0229l.4585 3.1174h.9169l-.6304-3.4269zm5.1805 0l-.424 2.6132h-.023l-.424-2.6132H6.5788l-.0688 3.427h.8596l.023-3.0832h.0114l.573 3.0831h.8711l.5731-3.083h.023l.0228 3.083h.8596l-.0802-3.4269zm-7.2664 2.4527c.0343.0802.0229.1949.0114.2522-.0229.1146-.1031.2292-.3324.2292-.2177 0-.3438-.126-.3438-.3095v-.3323H0v.2636c0 .7679.6074.9971 1.2493.9971.6189 0 1.1346-.2178 1.2149-.7794.0458-.298.0114-.4928 0-.5616-.1605-.722-1.467-.9283-1.5588-1.3295-.0114-.0688-.0114-.1375 0-.1834.023-.1146.1032-.2292.3095-.2292.2063 0 .321.126.321.3095v.2063h.8595v-.2407c0-.745-.6762-.8596-1.1576-.8596-.6074 0-1.1117.2063-1.2034.7564-.023.149-.0344.2866.0114.4585.1376.7106 1.364.9169 1.5358 1.3524m11.152 0c.0343.0803.0228.1834.0114.2522-.023.1146-.1032.2292-.3324.2292-.2178 0-.3438-.126-.3438-.3095v-.3323h-.917v.2636c0 .7564.596.9857 1.2379.9857.6189 0 1.1232-.2063 1.2034-.7794.0459-.298.0115-.4814 0-.5616-.1375-.7106-1.4327-.9284-1.5243-1.318-.0115-.0688-.0115-.1376 0-.1835.0229-.1146.1031-.2292.3094-.2292.1948 0 .321.126.321.3095v.2063h.848v-.2407c0-.745-.6647-.8596-1.146-.8596-.6075 0-1.1004.1948-1.192.7564-.023.149-.023.2866.0114.4585.1376.7106 1.341.9054 1.513 1.3524m2.8882.4585c.2407 0 .3094-.1605.3323-.2522.0115-.0343.0115-.0917.0115-.126v-2.533h.871v2.4642c0 .0688 0 .1948-.0114.2292-.0573.6419-.5616.8482-1.192.8482-.6303 0-1.1346-.2063-1.192-.8482 0-.0344-.0114-.1604-.0114-.2292v-2.4642h.871v2.533c0 .0458 0 .0916.0115.126 0 .0917.0688.2522.3095.2522m7.1518-.0344c.2522 0 .3324-.1605.3553-.2522.0115-.0343.0115-.0917.0115-.126v-.4929h-.3553v-.5043H24v.917c0 .0687 0 .1145-.0115.2292-.0573.6303-.596.8481-1.2034.8481-.6075 0-1.1461-.2178-1.2034-.8481-.0115-.1147-.0115-.1605-.0115-.2293v-1.444c0-.0574.0115-.172.0115-.2293.0802-.6419.596-.8482 1.2034-.8482s1.1347.2063 1.2034.8482c.0115.1031.0115.2292.0115.2292v.1146h-.8596v-.1948s0-.0803-.0115-.1261c-.0114-.0802-.0802-.2521-.3438-.2521-.2521 0-.321.1604-.3438.2521-.0115.0458-.0115.1032-.0115.1605v1.5702c0 .0458 0 .0916.0115.126 0 .0917.0917.2522.3323.2522"/></symbol>
+    <symbol id="i-motorola" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C24.002 5.375 18.632.002 12.007 0H12zm7.327 18.065s-.581-2.627-1.528-4.197c-.514-.857-1.308-1.553-2.368-1.532-.745 0-1.399.423-2.2 1.553-.469.77-.882 1.573-1.235 2.403 0 0-.29-.675-.63-1.343a8.038 8.038 0 0 0-.605-1.049c-.804-1.13-1.455-1.539-2.2-1.553-1.049-.021-1.854.675-2.364 1.528-.948 1.574-1.528 4.197-1.528 4.197h-.864l4.606-15.12 3.56 11.804.024.021.024-.021 3.56-11.804 4.61 15.113h-.862z"/></symbol>
+    <symbol id="i-lg" viewBox="0 6.71 24 10.58"><path fill="currentColor" d="M14.522 14.078h3.27v1.33h-4.847v-6.83h1.577v5.5zm6.74-1.274h1.284v1.195c-.236.09-.698.18-1.137.18-1.42 0-1.893-.721-1.893-2.186 0-1.398.45-2.221 1.869-2.221.791 0 1.24.248 1.612.722l.982-.903c-.6-.855-1.646-1.114-2.629-1.114-2.208 0-3.368 1.205-3.368 3.504 0 2.288 1.047 3.528 3.358 3.528 1.06 0 2.096-.27 2.66-.665V11.53h-2.739v1.274zM5.291 6.709a5.29 5.29 0 1 1 0 10.582 5.291 5.291 0 1 1 0-10.582m3.16 8.457a4.445 4.445 0 0 0 1.31-3.161v-.242l-.22.001H6.596v.494h2.662l-.001.015a3.985 3.985 0 0 1-3.965 3.708 3.95 3.95 0 0 1-2.811-1.165 3.952 3.952 0 0 1-1.164-2.811c0-1.061.414-2.059 1.164-2.81a3.951 3.951 0 0 1 2.81-1.164l.252.003v-.495l-.251-.003a4.475 4.475 0 0 0-4.47 4.469c0 1.194.465 2.316 1.309 3.161a4.444 4.444 0 0 0 3.16 1.31 4.444 4.444 0 0 0 3.162-1.31m-2.91-1.297V9.644H5.04v4.72h1.556v-.495H5.543zm-1.265-3.552a.676.676 0 1 0-.675.674.676.676 0 0 0 .675-.674"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   </svg>
 
   <script src="script.js"></script>

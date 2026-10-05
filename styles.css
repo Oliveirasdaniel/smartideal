@@ -6,19 +6,27 @@
    ========================================================== */
 
 :root {
-  /* cores da marca: preto e amarelo (logo do Instagram) + a nebulosa do hero */
-  --ember: #ffc700;
-  --ember-hi: #ffd84a;
-  --abyss: #050505;
-  --carbon: #0d0d10;
-  --ink: #ffffff;
-  --paper: #000000;
-  --fog: #111114;
-  --mist: #34343b;
-  --steel: #6f707a;
-  --pewter: #8d8e98;
-  --graphite: #a5a6b0;
-  --hairline: #1f1f24;
+  /* off-white acaramelado com preto nos detalhes */
+  --paper: #f3eadb;
+  --fog: #e8dbc5;
+  --card: #faf5ec;
+  --ink: #000000;
+  --graphite: #4d4339;
+  --pewter: #6b5e50;
+  --steel: #8c7d69;
+  --mist: #c9b99f;
+  --hairline: #dccdb5;
+  --caramel: #9a6430;
+
+  /* botões principais em preto */
+  --ember: #000000;
+  --ember-hi: #2b241d;
+  --abyss: #000000;
+  --carbon: #000000;
+
+  /* cores dos apps */
+  --whatsapp: #25d366;
+  --gmail: #ea4335;
 
   --radius: 12px;
   --radius-tag: 6px;
@@ -27,8 +35,8 @@
   --gutter: clamp(16px, 4vw, 32px);
   --header-h: 64px;
 
-  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Archivo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font: "Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ---------- base ---------- */
@@ -52,8 +60,7 @@ body {
   font-family: var(--font);
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: -0.01em;
-  font-feature-settings: "calt" 0, "liga" 0, "ss03" 1, "cv01" 1, "cv10" 1;
+  letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -165,6 +172,23 @@ a {
   background: var(--ember-hi);
 }
 
+/* WhatsApp: verde do app com texto preto (bem legível) */
+.btn-wa {
+  background: var(--whatsapp);
+  color: #000;
+}
+
+.btn-wa:hover {
+  background: #3ddc77;
+}
+
+.wa-ico {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--whatsapp);
+}
+
 .btn-sm {
   min-height: 40px;
   padding: 8px 16px;
@@ -209,7 +233,7 @@ a {
   display: inline-block;
   padding: 3px 8px;
   border-radius: var(--radius-tag);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   color: var(--graphite);
   font-size: 0.8125rem;
   font-weight: 500;
@@ -219,7 +243,7 @@ a {
   width: 100%;
   min-height: 48px;
   padding: 12px 16px;
-  background: var(--paper);
+  background: #fffdf8;
   border: 1px solid var(--mist);
   border-radius: var(--radius);
   color: var(--ink);
@@ -239,9 +263,9 @@ a {
 /* ---------- barra de aviso e header ---------- */
 
 .announce {
-  background: var(--carbon);
-  color: var(--ink);
-  font-size: 0.8125rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
@@ -251,10 +275,20 @@ a {
 }
 
 .announce a {
-  margin-left: 6px;
-  color: var(--ember);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  color: var(--whatsapp);
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.announce-wa svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
 
 .announce a:hover {
@@ -265,7 +299,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(0, 0, 0, 0.86);
+  background: rgba(243, 234, 219, 0.9);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hairline);
@@ -296,9 +330,12 @@ a {
   height: 28px;
 }
 
-.logo span,
+.logo span {
+  color: var(--ink);
+}
+
 .footer-brand span {
-  color: var(--ember);
+  color: var(--paper);
 }
 
 .logo-badge {
@@ -329,59 +366,18 @@ a {
   display: none;
 }
 
-/* sobre o hero escuro o header fica transparente, com texto branco */
 .site-header {
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
 }
 
-.site-header.on-dark {
-  background: rgba(7, 8, 31, 0.35);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  color: var(--ink);
-}
-
-.site-header.on-dark .nav-list a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 /* ---------- hero ---------- */
 
-/* o hero sobe por baixo do header para a nebulosa aparecer atrás dele */
 .hero {
   position: relative;
-  isolation: isolate;
-  margin-top: calc(-1 * var(--header-h));
-  padding-block: calc(var(--header-h) + clamp(48px, 7vw, 96px)) clamp(56px, 8vw, 104px);
   overflow: hidden;
-  background: #07081f;
+  padding-block: clamp(48px, 7vw, 96px);
+  background: var(--paper);
   color: var(--ink);
-}
-
-.hero-sky {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  /* aparece enquanto a nebulosa é gerada, ou se o JS falhar */
-  background:
-    radial-gradient(ellipse 45% 55% at 72% 45%, rgba(110, 80, 255, 0.45), transparent 70%),
-    radial-gradient(ellipse 35% 40% at 60% 65%, rgba(50, 110, 255, 0.35), transparent 70%),
-    #07081f;
-}
-
-.hero-sky canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-nebula {
-  opacity: 0;
-  transition: opacity 1.2s ease-out;
-}
-
-.hero-nebula.is-ready {
-  opacity: 1;
 }
 
 .hero-grid {
@@ -393,44 +389,27 @@ a {
 
 h1 {
   font-family: var(--font-display);
-  font-stretch: 112%;
-  font-weight: 500;
-  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
-  line-height: 1.04;
+  font-weight: 800;
+  font-size: clamp(3rem, 6.2vw, 5.5rem);
+  line-height: 0.95;
   letter-spacing: -0.035em;
   text-wrap: balance;
+  max-width: 12ch;
 }
 
 .hero-sub {
-  margin-top: 24px;
-  max-width: 46ch;
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.74);
-}
-
-.hero .input {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-.hero .ghost-link {
-  color: var(--ink);
-}
-
-.hero-form {
-  display: flex;
-  gap: 8px;
-  margin-top: 32px;
-  max-width: 520px;
-}
-
-.hero-form .btn {
-  flex: none;
+  margin-top: 28px;
+  max-width: 30ch;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.38;
+  letter-spacing: -0.015em;
+  color: var(--graphite);
 }
 
 .hero-copy > .ghost-link {
-  margin-top: 20px;
+  margin-top: 28px;
+  font-size: 1.0625rem;
+  font-weight: 600;
 }
 
 /* vitrine com o iPhone 3D */
@@ -443,14 +422,35 @@ h1 {
   perspective-origin: 50% 40%;
 }
 
-/* brilho atrás do aparelho, para ele se destacar da nebulosa */
-.showcase::before {
+/* sombra no chão, acompanha o aparelho flutuando */
+.showcase::after {
   content: "";
   position: absolute;
-  inset: 8% 10%;
-  z-index: -1;
-  background: radial-gradient(closest-side, rgba(140, 120, 255, 0.4), transparent);
-  filter: blur(24px);
+  left: 50%;
+  bottom: 2%;
+  width: 52%;
+  height: 40px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(74, 48, 20, 0.34), transparent);
+  filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .showcase::after {
+    animation: sombra 7s ease-in-out infinite;
+  }
+}
+
+@keyframes sombra {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.84);
+    opacity: 0.65;
+  }
 }
 
 /* flutua devagar e balança de leve */
@@ -909,23 +909,43 @@ h1 {
 }
 
 .band-title {
-  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--graphite);
 }
 
 .brands {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px clamp(32px, 7vw, 96px);
-  margin-top: 28px;
-  color: var(--pewter);
-  font-family: var(--font-display);
-  font-stretch: 112%;
+  align-items: flex-end;
+  gap: 28px clamp(40px, 8vw, 112px);
+  margin-top: 32px;
+}
+
+.brands li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9375rem;
   font-weight: 600;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  letter-spacing: -0.03em;
+  color: var(--pewter);
+}
+
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  color: var(--ink);
+}
+
+.brand-logo-wide {
+  width: 150px;
+}
+
+.brand-logo-lg {
+  width: 112px;
 }
 
 /* ---------- seções ---------- */
@@ -957,12 +977,8 @@ h1 {
 }
 
 .card {
-  background: var(--fog);
+  background: var(--card);
   border-radius: var(--radius);
-}
-
-.section-fog .card {
-  background: var(--paper);
 }
 
 .card h3 {
@@ -980,7 +996,7 @@ h1 {
 /* ---------- orçamento ---------- */
 
 .builder {
-  background: var(--fog);
+  background: var(--card);
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -1104,13 +1120,28 @@ h1 {
 .chip span {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  gap: 8px;
+  min-height: 42px;
   padding: 8px 16px;
   border: 1px solid var(--mist);
   border-radius: var(--radius-tag);
   font-size: 0.9375rem;
   font-weight: 500;
   transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.chip-logo {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.chip-logo-wide {
+  width: 76px;
+}
+
+.chip-logo-lg {
+  width: 40px;
 }
 
 .chip input:hover + span {
@@ -1224,17 +1255,17 @@ h1 {
 }
 
 .diagram .crack {
-  stroke: var(--ember);
+  stroke: var(--caramel);
   stroke-width: 1.75;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .diagram .film {
-  stroke: var(--ember);
+  stroke: var(--caramel);
   stroke-width: 2;
   stroke-dasharray: 8 6;
-  fill: rgba(255, 199, 0, 0.06);
+  fill: rgba(154, 100, 48, 0.06);
   opacity: 0;
   transform: translate(0, 0);
   transition: opacity 0.3s, transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -1246,7 +1277,7 @@ h1 {
 }
 
 .diagram .soft-arrows {
-  stroke: var(--ember);
+  stroke: var(--caramel);
   stroke-width: 3;
 }
 
@@ -1256,7 +1287,7 @@ h1 {
 }
 
 .diagram .soft-fill {
-  fill: var(--ember);
+  fill: var(--caramel);
   stroke: none;
 }
 
@@ -1267,15 +1298,15 @@ h1 {
 .diagram[data-part="bateria"] #p-bateria .part-shape,
 .diagram[data-part="carga"] #p-carga .part-shape,
 .diagram[data-part="carga"] #p-carga .port {
-  stroke: var(--ember);
+  stroke: var(--caramel);
   stroke-width: 2;
   stroke-dasharray: none;
-  fill: rgba(255, 199, 0, 0.07);
+  fill: rgba(154, 100, 48, 0.07);
 }
 
 .diagram[data-part="placa"] #p-placa .trace,
 .diagram[data-part="bateria"] #p-bateria .trace {
-  stroke: var(--ember);
+  stroke: var(--caramel);
 }
 
 .diagram[data-part="tela"] .crack {
@@ -1316,7 +1347,7 @@ h1 {
   place-items: center;
   aspect-ratio: 16 / 10;
   margin-bottom: 20px;
-  background: var(--fog);
+  background: var(--paper);
   border-radius: 8px;
 }
 
@@ -1333,40 +1364,6 @@ h1 {
 .shop-item .ghost-link {
   margin-top: auto;
   padding-top: 20px;
-}
-
-/* ---------- como funciona ---------- */
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.step {
-  padding-top: 20px;
-  border-top: 1px solid var(--mist);
-}
-
-.step-n {
-  display: block;
-  margin-bottom: 32px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--pewter);
-  font-feature-settings: "tnum" 1;
-}
-
-.step h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.step p {
-  margin-top: 8px;
-  max-width: 32ch;
-  color: var(--graphite);
 }
 
 /* ---------- lojas: mapa e loja mais perto ---------- */
@@ -1397,14 +1394,14 @@ h1 {
 .store {
   display: flex;
   flex-direction: column;
-  background: var(--paper);
+  background: var(--card);
   border: 1px solid transparent;
   border-radius: var(--radius);
   transition: border-color 0.15s;
 }
 
 .store.is-active {
-  border-color: var(--ember);
+  border-color: var(--ink);
 }
 
 .store-pick {
@@ -1442,7 +1439,7 @@ h1 {
 }
 
 .store-near {
-  background: var(--ember);
+  background: var(--ink);
   color: var(--paper);
 }
 
@@ -1467,46 +1464,74 @@ h1 {
 }
 
 .contact {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   margin-top: 16px;
-  padding: 24px;
 }
 
-.contact-list {
+.contact-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px 48px;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.15s;
 }
 
-.contact-list dt {
+.contact-item:hover {
+  border-color: var(--ink);
+}
+
+.contact-item small {
+  display: block;
   font-size: 0.8125rem;
   color: var(--pewter);
 }
 
-.contact-list dd {
+.contact-item strong {
+  display: block;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 
-.contact-list a {
-  text-decoration: none;
+.contact-tile {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  color: #fff;
 }
 
-.contact-list a:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.contact-tile svg {
+  width: 26px;
+  height: 26px;
+}
+
+.tile-wa {
+  background: var(--whatsapp);
+}
+
+.tile-gmail {
+  background: #fff;
+  color: var(--gmail);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+.tile-ig {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
 
 /* ---------- rodapé ---------- */
 
 .site-footer {
-  background: var(--abyss);
-  border-top: 1px solid var(--hairline);
-  color: var(--pewter);
+  background: var(--ink);
+  color: rgba(243, 234, 219, 0.72);
   font-size: 0.875rem;
 }
 
@@ -1522,7 +1547,7 @@ h1 {
   align-items: center;
   gap: 8px;
   align-self: start;
-  color: var(--ink);
+  color: var(--paper);
   font-family: var(--font-display);
   font-stretch: 112%;
   font-weight: 600;
@@ -1538,7 +1563,7 @@ h1 {
 
 .footer-cols h3 {
   margin-bottom: 14px;
-  color: var(--ink);
+  color: var(--paper);
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -1552,8 +1577,32 @@ h1 {
   text-decoration: none;
 }
 
+.foot-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.foot-ico {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.ico-wa {
+  color: var(--whatsapp);
+}
+
+.ico-gmail {
+  color: var(--gmail);
+}
+
+.ico-ig {
+  color: #e1306c;
+}
+
 .footer-cols a:hover {
-  color: var(--ink);
+  color: var(--paper);
 }
 
 .footer-bottom {
@@ -1562,8 +1611,8 @@ h1 {
   justify-content: space-between;
   gap: 12px 40px;
   padding-block: 24px 40px;
-  border-top: 1px solid var(--hairline);
-  color: var(--pewter);
+  border-top: 1px solid rgba(243, 234, 219, 0.16);
+  color: rgba(243, 234, 219, 0.6);
   font-size: 0.8125rem;
 }
 
@@ -1605,10 +1654,9 @@ h1 {
   right: calc(100% + 12px);
   top: 50%;
   padding: 8px 14px;
-  background: var(--paper);
-  color: var(--ink);
-  border: 1px solid var(--mist);
-  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+    border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
@@ -1750,47 +1798,24 @@ h1 {
     max-width: 200px;
   }
 
-  .steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px 24px;
-  }
-
   .finder-map,
   .finder-map iframe {
     min-height: 340px;
   }
 
-  .site-header.on-dark .nav-list {
-    background: #07081f;
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .site-header.on-dark .nav-list a {
-    border-top-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .site-header.on-dark .nav-toggle {
-    border-color: rgba(255, 255, 255, 0.35);
-    color: var(--ink);
-  }
-
-  /* no celular o texto fica por cima da nebulosa: escurece o topo */
-  .hero-sky::after {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 46%;
-    background: linear-gradient(rgba(7, 8, 31, 0.8) 55%, rgba(7, 8, 31, 0));
-  }
 }
 
 @media (max-width: 560px) {
-  .header-cta {
-    display: none;
+  .announce {
+    font-size: 0.75rem;
   }
 
-  .hero-form {
-    flex-direction: column;
+  .announce a {
+    margin-left: 4px;
+  }
+
+  .header-cta {
+    display: none;
   }
 
   .phone3d {
@@ -1802,16 +1827,12 @@ h1 {
   }
 
   .shop,
-  .steps {
+  .contact {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .footer-cols {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .contact .btn {
-    width: 100%;
   }
 
   .wa-float {

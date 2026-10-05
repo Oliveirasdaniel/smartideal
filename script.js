@@ -43,17 +43,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* ---------- orçamento rápido do hero ---------- */
-
-document.getElementById("hero-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const modelo = document.getElementById("hero-modelo").value.trim();
-  const texto = modelo
-    ? `Olá, Smart Ideal! Vim pelo site. Meu celular é um ${modelo}. Podem me passar um orçamento?`
-    : MENSAGEM_PADRAO;
-  window.open(waLink(texto), "_blank", "noopener");
-});
-
 /* ---------- monte seu orçamento: abas + diagrama ---------- */
 
 const PROBLEMAS = {
@@ -172,7 +161,7 @@ function atualizarRelogio() {
 atualizarRelogio();
 setInterval(atualizarRelogio, 30000);
 
-/* ---------- nebulosa roxa e azul (hero e papel de parede do iPhone) ---------- */
+/* ---------- nebulosa dourada: papel de parede do iPhone ---------- */
 
 // Gerador com semente: a nebulosa, as estrelas e as rachaduras saem sempre iguais
 function aleatorio(semente) {
@@ -257,16 +246,6 @@ const misturar = (c1, c2, t) => [
   c1[2] + (c2[2] - c1[2]) * t,
 ];
 
-// hero: meio roxo, meio azul
-const PALETA_ROXA = {
-  fundo: [7 / 255, 8 / 255, 31 / 255],
-  base: [0.12, 0.15, 0.58],
-  a: [0.24, 0.45, 1.0],
-  b: [0.56, 0.33, 1.0],
-  detalhe: [0.45, 0.85, 1.0],
-  nucleo: [0.86, 0.86, 1.0],
-};
-
 // papel de parede do iPhone: dourado, no amarelo da marca, para contrastar com o hero
 const PALETA_DOURADA = {
   fundo: [6 / 255, 3 / 255, 0],
@@ -300,31 +279,9 @@ function mascaraDaTela(largura, altura) {
   };
 }
 
-// Hero: faixa diagonal centrada no iPhone, descendo para a esquerda.
-// O título fica no escuro.
-function mascaraDoHero(largura, [celX, celY]) {
-  const mobile = largura < 900;
-  const cx = celX + (mobile ? 20 : 60);
-  const cy = celY;
-  const ra = mobile ? 560 : 700;
-  const rb = mobile ? 230 : 300;
-  return (x, y) => {
-    const dx = x - cx;
-    const dy = y - cy;
-    const a = dx * -0.8 + dy * 0.6;
-    const b = dx * 0.6 + dy * 0.8;
-    const ex = dx - (mobile ? 40 : 150);
-    const ey = dy + 60;
-    return {
-      faixa: Math.exp(-((a * a) / (ra * ra) + (b * b) / (rb * rb))),
-      nucleo: Math.exp(-(ex * ex + ey * ey) / (2 * 190 * 190)),
-    };
-  };
-}
-
 // Gera a nebulosa num canvas pequeno (1/passo da resolução), em lotes
 // para não travar a página, e devolve o canvas já desfocado
-async function gerarNebulosa({ largura, altura, mascara, passo, nuvem, semente, desfoque, paleta = PALETA_ROXA, exposicao = 1.75 }) {
+async function gerarNebulosa({ largura, altura, mascara, passo, nuvem, semente, desfoque, paleta = PALETA_DOURADA, exposicao = 1.75 }) {
   const w = Math.max(40, Math.round(largura / passo));
   const h = Math.max(40, Math.round(altura / passo));
   const img = new ImageData(w, h);
@@ -599,83 +556,16 @@ async function desenharTela() {
   gerarRachaduras(document.getElementById("cracks"), largura, altura);
 }
 
-/* ---------- nebulosa atrás do hero ---------- */
-
-const hero = document.getElementById("inicio");
-const ceuNebulosa = document.getElementById("hero-nebula");
-const ceuEstrelas = document.getElementById("hero-stars");
-let tamanhoDoHero = [0, 0];
-
-// centro da vitrine (estável mesmo com o iPhone girando)
-function centroDoIphone() {
-  const h = hero.getBoundingClientRect();
-  const v = document.querySelector(".showcase").getBoundingClientRect();
-  return [v.left - h.left + v.width / 2, v.top - h.top + v.height / 2];
-}
-
-async function desenharHero() {
-  const largura = hero.offsetWidth;
-  const altura = hero.offsetHeight;
-  const [l, a] = tamanhoDoHero;
-  if (Math.abs(largura - l) < 40 && Math.abs(altura - a) < 120) return;
-  tamanhoDoHero = [largura, altura];
-
-  const mascara = mascaraDoHero(largura, centroDoIphone());
-
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  ceuEstrelas.width = Math.round(largura * dpr);
-  ceuEstrelas.height = Math.round(altura * dpr);
-  const ctxEstrelas = ceuEstrelas.getContext("2d");
-  ctxEstrelas.scale(dpr, dpr);
-  desenharEstrelas(ctxEstrelas, largura, altura, {
-    mascara,
-    densidade: 1400,
-    brilhantes: Math.max(3, Math.round((largura * altura) / 300000)),
-    tamanho: 14,
-    semente: 99,
-    evitarAte: largura < 900 ? 0 : largura * 0.5,
-  });
-
-  const nebulosa = await gerarNebulosa({ largura, altura, mascara, passo: 4, nuvem: 640, semente: 7331, desfoque: 1.2 });
-  ceuNebulosa.width = nebulosa.width;
-  ceuNebulosa.height = nebulosa.height;
-  ceuNebulosa.getContext("2d").drawImage(nebulosa, 0, 0);
-  ceuNebulosa.classList.add("is-ready");
-}
-
-// Espera a fonte carregar para o hero estar com a altura final
+// Espera a fonte carregar e desenha a tela do iPhone; redesenha se o tamanho mudar
 Promise.race([document.fonts.ready, new Promise((ok) => setTimeout(ok, 1500))]).then(async () => {
   await desenharTela();
-  await desenharHero();
 
   let espera;
   new ResizeObserver(() => {
     clearTimeout(espera);
-    espera = setTimeout(async () => {
-      await desenharTela();
-      await desenharHero();
-    }, 250);
-  }).observe(hero);
+    espera = setTimeout(desenharTela, 250);
+  }).observe(tela);
 });
-
-/* ---------- header transparente sobre o hero, preto no resto ---------- */
-
-const header = document.querySelector(".site-header");
-
-function atualizarHeader() {
-  header.classList.toggle("on-dark", hero.getBoundingClientRect().bottom > header.offsetHeight);
-}
-
-let quadroHeader = 0;
-window.addEventListener(
-  "scroll",
-  () => {
-    cancelAnimationFrame(quadroHeader);
-    quadroHeader = requestAnimationFrame(atualizarHeader);
-  },
-  { passive: true }
-);
-atualizarHeader();
 
 /* ---------- iPhone 3D: lateral de titânio ---------- */
 
