@@ -1300,6 +1300,51 @@ h1 {
   transform: translate(-16px, -16px);
 }
 
+/* traseira do iPhone (aba Tampa traseira): some a frente e aparece o vidro de trás */
+.diagram .tampa,
+.diagram #p-tela,
+.diagram .btn-side,
+.diagram .cam {
+  transition: opacity 0.3s;
+}
+
+.diagram .tampa {
+  opacity: 0;
+}
+
+.diagram .back-glass {
+  stroke: var(--caramel);
+  stroke-width: 2;
+  fill: rgba(154, 100, 48, 0.07);
+}
+
+.diagram .btn-back,
+.diagram .cam-flash {
+  fill: var(--ink);
+  stroke: none;
+}
+
+.diagram .cam-plate,
+.diagram .cam-lens {
+  fill: var(--paper);
+}
+
+.diagram .crack-back {
+  stroke: var(--caramel);
+  stroke-width: 1.75;
+}
+
+.diagram[data-part="tampa"] .tampa {
+  opacity: 1;
+}
+
+.diagram[data-part="tampa"] #p-tela,
+.diagram[data-part="tampa"] .internals,
+.diagram[data-part="tampa"] .btn-side,
+.diagram[data-part="tampa"] .cam {
+  opacity: 0;
+}
+
 /* ---------- acessórios: vitrine com abas ---------- */
 
 /* categorias: mesmo desenho dos chips de marca do orçamento */

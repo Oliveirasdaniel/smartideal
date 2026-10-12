@@ -218,7 +218,8 @@
         <form class="builder" id="builder">
           <fieldset class="tabs">
             <legend class="sr-only">O que aconteceu?</legend>
-            <label class="tab"><input type="radio" name="problema" value="tela" checked><span>Tela quebrada</span></label>
+            <label class="tab"><input type="radio" name="problema" value="tampa" checked><span>Tampa traseira do iPhone</span></label>
+            <label class="tab"><input type="radio" name="problema" value="tela"><span>Tela quebrada</span></label>
             <label class="tab"><input type="radio" name="problema" value="bateria"><span>Bateria</span></label>
             <label class="tab"><input type="radio" name="problema" value="carga"><span>Não carrega</span></label>
             <label class="tab"><input type="radio" name="problema" value="software"><span>Travando</span></label>
@@ -229,12 +230,13 @@
           <div class="builder-panel">
             <div class="builder-form">
               <div class="builder-info" aria-live="polite">
-                <h3 id="info-title">Troca de tela</h3>
-                <p id="info-text">Vidro trincado, touch falhando, manchas, linhas ou tela preta.</p>
-                <span class="tag" id="info-eta">Geralmente no mesmo dia</span>
+                <h3 id="info-title">Troca de tampa traseira</h3>
+                <p id="info-text">Vidro de trás do iPhone trincado, lascado ou quebrado.</p>
+                <span class="tag" id="info-eta">Prazo informado no orçamento</span>
               </div>
 
-              <fieldset class="field-group">
+              <!-- some na aba Tampa traseira, que é só para iPhone -->
+              <fieldset class="field-group" id="campo-marca" hidden>
                 <legend class="field-label">Marca</legend>
                 <div class="chips">
                   <label class="chip"><input type="radio" name="marca" value="Apple" checked><span><svg class="chip-logo" aria-hidden="true"><use href="#i-apple"/></svg>Apple</span></label>
@@ -254,7 +256,7 @@
 
               <div class="bubble">
                 <span class="bubble-label">Mensagem que vamos enviar</span>
-                <p id="msg-preview">Olá, Smart Ideal! Tenho um iPhone e a tela está quebrada ou com defeito. Podem me passar um orçamento?</p>
+                <p id="msg-preview">Olá, Smart Ideal! Tenho um iPhone e a tampa traseira está quebrada. Podem me passar um orçamento?</p>
               </div>
 
               <a class="btn btn-wa btn-block" id="send" href="https://wa.me/5521967063243" target="_blank" rel="noopener">
@@ -264,7 +266,7 @@
             </div>
 
             <figure class="bench" aria-hidden="true">
-              <svg class="diagram" id="diagram" viewBox="10 26 270 500" data-part="tela" data-brand="Apple">
+              <svg class="diagram" id="diagram" viewBox="10 26 270 500" data-part="tampa" data-brand="Apple">
                 <rect class="body-fill" x="40" y="50" width="220" height="460" rx="38"/>
                 <rect class="film" id="p-pelicula" x="48" y="58" width="204" height="444" rx="31"/>
                 <rect class="body" x="40" y="50" width="220" height="460" rx="38"/>
@@ -301,6 +303,20 @@
                 </g>
                 <rect class="cam cam-pill" x="120" y="72" width="60" height="18" rx="9"/>
                 <circle class="cam cam-punch" cx="150" cy="82" r="8"/>
+
+                <!-- traseira do iPhone: aparece na aba Tampa traseira (botões trocam de lado) -->
+                <g class="tampa" id="p-tampa">
+                  <rect class="back-glass" x="48" y="58" width="204" height="444" rx="31"/>
+                  <rect class="btn-back" x="36" y="150" width="4" height="52" rx="2"/>
+                  <rect class="btn-back" x="260" y="130" width="4" height="34" rx="2"/>
+                  <rect class="btn-back" x="260" y="172" width="4" height="34" rx="2"/>
+                  <rect class="cam-plate" x="60" y="70" width="96" height="96" rx="24"/>
+                  <circle class="cam-lens" cx="84" cy="94" r="15"/>
+                  <circle class="cam-lens" cx="84" cy="142" r="15"/>
+                  <circle class="cam-lens" cx="130" cy="118" r="15"/>
+                  <circle class="cam-flash" cx="132" cy="85" r="4.5"/>
+                  <path class="crack-back" d="M186 392l-28 -36 -38 -6M158 356l2 -42M186 392l46 -18M186 392l-4 50 -28 28M186 392l32 40M182 442l-40 4"/>
+                </g>
 
                 <g class="soft" id="p-software">
                   <path class="soft-arrows" d="M174 280a26 26 0 0 0 -46 -10M126 300a26 26 0 0 0 46 10"/>

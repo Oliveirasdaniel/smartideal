@@ -46,10 +46,17 @@ document.addEventListener("keydown", (e) => {
 /* ---------- monte seu orçamento: abas + diagrama ---------- */
 
 const PROBLEMAS = {
+  // carro-chefe da loja: primeira aba e só para iPhone
+  tampa: {
+    titulo: "Troca de tampa traseira",
+    texto: "Vidro de trás do iPhone trincado, lascado ou quebrado.",
+    prazo: "Prazo informado no orçamento",
+    frase: "a tampa traseira está quebrada",
+  },
   tela: {
     titulo: "Troca de tela",
     texto: "Vidro trincado, touch falhando, manchas, linhas ou tela preta.",
-    prazo: "Geralmente no mesmo dia",
+    prazo: "Normalmente em 2 horas",
     frase: "a tela está quebrada ou com defeito",
   },
   bateria: {
@@ -105,7 +112,9 @@ const LINHAS = {
 };
 
 const builder = document.getElementById("builder");
+const campoMarca = document.getElementById("campo-marca");
 const modelo = document.getElementById("modelo");
+const EXEMPLO_MODELO = modelo.placeholder;
 const preview = document.getElementById("msg-preview");
 const enviar = document.getElementById("send");
 const diagram = document.getElementById("diagram");
@@ -116,7 +125,8 @@ const infoPrazo = document.getElementById("info-eta");
 function nomeDoAparelho(marca, texto) {
   const m = texto.trim();
   if (!m) return NOME_SEM_MODELO[marca];
-  return LINHAS[marca].test(m) ? m : `${marca} ${m}`;
+  const jaDizALinha = Object.values(LINHAS).some((linha) => linha.test(m));
+  return jaDizALinha ? m : `${NOME_SEM_MODELO[marca]} ${m}`;
 }
 
 function montarMensagem(marca, problema, texto) {
@@ -128,9 +138,14 @@ function montarMensagem(marca, problema, texto) {
 }
 
 function atualizar() {
-  const marca = builder.elements.marca.value;
   const problema = builder.elements.problema.value;
   const info = PROBLEMAS[problema];
+
+  // tampa traseira é só para iPhone: a escolha de marca some, mas fica guardada para as outras abas
+  const soIphone = problema === "tampa";
+  campoMarca.hidden = soIphone;
+  modelo.placeholder = soIphone ? "Ex.: iPhone 13 Pro" : EXEMPLO_MODELO;
+  const marca = soIphone ? "Apple" : builder.elements.marca.value;
 
   infoTitulo.textContent = info.titulo;
   infoTexto.textContent = info.texto;
