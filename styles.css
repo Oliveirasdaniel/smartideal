@@ -365,19 +365,19 @@ a {
   align-items: center;
 }
 
-h1 {
-  font-family: "Big Shoulders Display", var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3.5rem, 7.4vw, 6.75rem);
-  line-height: 0.88;
-  letter-spacing: -0.005em;
-  text-transform: uppercase;
-  text-wrap: balance;
-  max-width: 12ch;
+/* logo da loja no lugar do título: o texto do título fica no alt da imagem.
+   O fundo preto original foi recortado; o brilho roxo some aos poucos no papel. */
+.hero-logo {
+  max-width: 580px;
+}
+
+.hero-logo img {
+  width: 100%;
+  height: auto;
 }
 
 .hero-sub {
-  margin-top: 28px;
+  margin-top: 24px;
   max-width: 30ch;
   font-size: clamp(1.25rem, 2vw, 1.625rem);
   line-height: 1.38;

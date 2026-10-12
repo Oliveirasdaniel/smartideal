@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="assets/imagens/logo-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800..900&family=Schibsted+Grotesk:wght@400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -100,12 +100,19 @@
     <section class="hero" id="inicio">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <h1>Conserto de celular na Taquara.</h1>
+          <!-- logo enviada pelo cliente (original com fundo preto em versoes/logo-original-fundo-preto.png) -->
+          <h1 class="hero-logo">
+            <img src="assets/imagens/logo-smart-ideal-800.webp"
+              srcset="assets/imagens/logo-smart-ideal-800.webp 800w, assets/imagens/logo-smart-ideal.webp 1600w"
+              sizes="(max-width: 900px) calc(100vw - 32px), 580px"
+              width="1600" height="533" fetchpriority="high"
+              alt="Smart Ideal: conserto de celulares e acessórios">
+          </h1>
           <p class="hero-sub">Troca de tela, bateria e conector. Troca de tampa traseira de iPhone. Capas, películas, carregadores, fones, caixinhas de som, power banks e muito mais.</p>
 
           <a class="ghost-link" href="#lojas">
             <svg class="ghost-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            Ver as três lojas
+            Ver as três lojas na Taquara
           </a>
         </div>
 
