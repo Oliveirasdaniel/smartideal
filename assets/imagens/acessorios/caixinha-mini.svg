@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <!-- ilustração provisória: caixinha de som mini, redonda -->
+  <rect width="640" height="480" fill="#fff"/>
+  <ellipse cx="320" cy="400" rx="150" ry="16" fill="#000" opacity=".12"/>
+  <circle cx="320" cy="250" r="150" fill="#3d5a80"/>
+  <circle cx="320" cy="250" r="150" fill="url(#g)"/>
+  <circle cx="320" cy="250" r="110" fill="#2c4463"/>
+  <g fill="#4e6d95">
+    <circle cx="320" cy="250" r="70"/>
+  </g>
+  <circle cx="320" cy="250" r="30" fill="#22374f"/>
+  <circle cx="320" cy="250" r="10" fill="#6b8bb5"/>
+  <rect x="450" y="120" width="40" height="14" rx="7" fill="#22374f" transform="rotate(40 470 127)"/>
+  <defs><radialGradient id="g" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></radialGradient></defs>
+</svg>

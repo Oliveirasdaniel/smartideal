@@ -358,17 +358,45 @@
              Para pôr mais uma foto numa aba, copie um <figure>: o quadro se arruma sozinho
              para 1, 2, 3 ou 4 fotos (com 3, a primeira fica grande; com 4, fica 2 x 2).
              Fotos provisórias do Pexels (16886332, 4072683, 914912, 7360460, 7772548,
-             3825517, 7417547), licença Pexels. Películas e capa Space: imagens de fábrica
+             3825517, 7417547), licença Pexels. Power bank magnético e caixinhas de som: ilustrações provisórias (SVG), troque por fotos reais com o mesmo nome. Películas e capa Space: imagens de fábrica
              dos produtos, as mesmas usadas pelas lojas que revendem. -->
         <div class="vitrine">
           <div class="vitrine-tabs" role="tablist" aria-label="Tipos de acessório">
-            <button class="vitrine-tab" type="button" role="tab" id="aba-peliculas" aria-controls="painel-peliculas" aria-selected="true">Películas</button>
+            <button class="vitrine-tab" type="button" role="tab" id="aba-capas" aria-controls="painel-capas" aria-selected="true">Capas</button>
+            <button class="vitrine-tab" type="button" role="tab" id="aba-peliculas" aria-controls="painel-peliculas" aria-selected="false" tabindex="-1">Películas</button>
             <button class="vitrine-tab" type="button" role="tab" id="aba-carregadores" aria-controls="painel-carregadores" aria-selected="false" tabindex="-1">Carregadores e cabos</button>
-            <button class="vitrine-tab" type="button" role="tab" id="aba-capas" aria-controls="painel-capas" aria-selected="false" tabindex="-1">Capas</button>
+            <button class="vitrine-tab" type="button" role="tab" id="aba-powerbanks" aria-controls="painel-powerbanks" aria-selected="false" tabindex="-1">Power banks</button>
+            <button class="vitrine-tab" type="button" role="tab" id="aba-caixinhas" aria-controls="painel-caixinhas" aria-selected="false" tabindex="-1">Caixinhas de som</button>
             <button class="vitrine-tab" type="button" role="tab" id="aba-fones" aria-controls="painel-fones" aria-selected="false" tabindex="-1">Fones</button>
           </div>
 
-          <div class="vitrine-panel" role="tabpanel" id="painel-peliculas" aria-labelledby="aba-peliculas">
+          <div class="vitrine-panel" role="tabpanel" id="painel-capas" aria-labelledby="aba-capas">
+            <div class="vitrine-info">
+              <h3>Capas</h3>
+              <p class="vitrine-label">Modelos que trabalhamos</p>
+              <ul class="tipos">
+                <li>Transparente</li>
+                <li>Space</li>
+              </ul>
+              <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Vocês têm capa para o meu modelo?" href="https://wa.me/5521967063243">
+                <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+                Perguntar por capas
+              </a>
+            </div>
+            <div class="fotos">
+              <figure class="foto">
+                <img src="assets/imagens/acessorios/capa-transparente.jpg" alt="Capa transparente com cantos reforçados" width="640" height="960" loading="lazy" decoding="async">
+                <figcaption>Transparente</figcaption>
+              </figure>
+              <!-- foto oficial da capa Space Collection, a mesma usada pelas lojas que revendem -->
+              <figure class="foto">
+                <img src="assets/imagens/acessorios/capa-space.jpg" alt="Capa Space transparente num iPhone, vista de trás" width="640" height="960" loading="lazy" decoding="async">
+                <figcaption>Space</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="vitrine-panel" role="tabpanel" id="painel-peliculas" aria-labelledby="aba-peliculas" hidden>
             <div class="vitrine-info">
               <h3>Películas</h3>
               <p class="vitrine-label">Modelos que trabalhamos</p>
@@ -413,7 +441,6 @@
               <ul class="tipos">
                 <li>Carregadores de carga rápida</li>
                 <li>Carregadores turbo</li>
-                <li>Carregadores portáteis (power bank)</li>
                 <li>Cabos diversos, de 1 a 2 metros</li>
               </ul>
               <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Procuro carregador ou cabo para o meu celular. O que vocês têm?" href="https://wa.me/5521967063243">
@@ -427,38 +454,63 @@
                 <figcaption>Carregadores</figcaption>
               </figure>
               <figure class="foto">
-                <img src="assets/imagens/acessorios/power-bank.jpg" alt="Power bank prateado com cabos azuis" width="640" height="480" loading="lazy" decoding="async">
-                <figcaption>Power bank</figcaption>
-              </figure>
-              <figure class="foto">
                 <img src="assets/imagens/acessorios/cabos.jpg" alt="Ponta de um cabo branco de celular" width="640" height="480" loading="lazy" decoding="async">
                 <figcaption>Cabos</figcaption>
               </figure>
             </div>
           </div>
 
-          <div class="vitrine-panel" role="tabpanel" id="painel-capas" aria-labelledby="aba-capas" hidden>
+          <div class="vitrine-panel" role="tabpanel" id="painel-powerbanks" aria-labelledby="aba-powerbanks" hidden>
             <div class="vitrine-info">
-              <h3>Capas</h3>
+              <h3>Power banks</h3>
               <p class="vitrine-label">Modelos que trabalhamos</p>
               <ul class="tipos">
-                <li>Transparente</li>
-                <li>Space</li>
+                <li>Power banks de vários tamanhos</li>
+                <li>Power bank magnético</li>
               </ul>
-              <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Vocês têm capa para o meu modelo?" href="https://wa.me/5521967063243">
+              <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Procuro um power bank. Quais vocês têm?" href="https://wa.me/5521967063243">
                 <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-                Perguntar por capas
+                Perguntar por power banks
               </a>
             </div>
             <div class="fotos">
               <figure class="foto">
-                <img src="assets/imagens/acessorios/capa-transparente.jpg" alt="Capa transparente com cantos reforçados" width="640" height="960" loading="lazy" decoding="async">
-                <figcaption>Transparente</figcaption>
+                <img src="assets/imagens/acessorios/power-bank.jpg" alt="Power bank prateado com cabos azuis" width="640" height="480" loading="lazy" decoding="async">
+                <figcaption>Power bank</figcaption>
               </figure>
-              <!-- foto oficial da capa Space Collection, a mesma usada pelas lojas que revendem -->
               <figure class="foto">
-                <img src="assets/imagens/acessorios/capa-space.jpg" alt="Capa Space transparente num iPhone, vista de trás" width="640" height="960" loading="lazy" decoding="async">
-                <figcaption>Space</figcaption>
+                <img src="assets/imagens/acessorios/power-bank-magnetico.svg" alt="Ilustração de power bank magnético" width="640" height="480" loading="lazy" decoding="async">
+                <figcaption>Magnético</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="vitrine-panel" role="tabpanel" id="painel-caixinhas" aria-labelledby="aba-caixinhas" hidden>
+            <div class="vitrine-info">
+              <h3>Caixinhas de som</h3>
+              <p class="vitrine-label">Modelos que trabalhamos</p>
+              <ul class="tipos">
+                <li>Caixinhas portáteis bluetooth</li>
+                <li>Caixinhas mini</li>
+                <li>Caixas de som grandes</li>
+              </ul>
+              <a class="ghost-link wa-link" data-wa data-wa-text="Olá, Smart Ideal! Quero saber quais caixinhas de som vocês têm." href="https://wa.me/5521967063243">
+                <svg class="wa-ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+                Perguntar por caixinhas
+              </a>
+            </div>
+            <div class="fotos">
+              <figure class="foto">
+                <img src="assets/imagens/acessorios/caixinha-grande.svg" alt="Ilustração de caixa de som grande com alça" width="640" height="960" loading="lazy" decoding="async">
+                <figcaption>Grande</figcaption>
+              </figure>
+              <figure class="foto">
+                <img src="assets/imagens/acessorios/caixinha-portatil.svg" alt="Ilustração de caixinha de som portátil" width="640" height="480" loading="lazy" decoding="async">
+                <figcaption>Portátil</figcaption>
+              </figure>
+              <figure class="foto">
+                <img src="assets/imagens/acessorios/caixinha-mini.svg" alt="Ilustração de caixinha de som mini" width="640" height="480" loading="lazy" decoding="async">
+                <figcaption>Mini</figcaption>
               </figure>
             </div>
           </div>
@@ -494,7 +546,7 @@
           </div>
         </div>
 
-        <p class="vitrine-extra">Também temos caixinhas de som e outros acessórios. <a class="inline-link" data-wa data-wa-text="Olá, Smart Ideal! Quero saber que acessórios vocês têm." href="https://wa.me/5521967063243">Pergunte no WhatsApp</a>.</p>
+        <p class="vitrine-extra">Procura outro acessório? <a class="inline-link" data-wa data-wa-text="Olá, Smart Ideal! Quero saber que acessórios vocês têm." href="https://wa.me/5521967063243">Pergunte no WhatsApp</a>.</p>
       </div>
     </section>
 
