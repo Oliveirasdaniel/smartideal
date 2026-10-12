@@ -78,7 +78,7 @@ const PROBLEMAS = {
   },
   pelicula: {
     titulo: "Películas e acessórios",
-    texto: "Películas, capas, carregadores, cabos e fones para o seu modelo.",
+    texto: "Películas, capas, carregadores, cabos, fones, caixinhas de som e power banks.",
     prazo: "Consulte a disponibilidade",
   },
 };
@@ -88,6 +88,9 @@ const NOME_SEM_MODELO = {
   Samsung: "Samsung",
   Motorola: "Motorola",
   LG: "LG",
+  Xiaomi: "Xiaomi",
+  Infinix: "Infinix",
+  Realme: "Realme",
 };
 
 // Se o cliente já escreveu a linha do aparelho, não repete a marca
@@ -96,6 +99,9 @@ const LINHAS = {
   Samsung: /samsung|galaxy/i,
   Motorola: /motorola|moto/i,
   LG: /\blg\b/i,
+  Xiaomi: /xiaomi|redmi|poco|\bmi\b/i,
+  Infinix: /infinix/i,
+  Realme: /realme|narzo/i,
 };
 
 const builder = document.getElementById("builder");
@@ -146,6 +152,45 @@ builder.addEventListener("submit", (e) => {
 });
 
 atualizar();
+
+/* ---------- acessórios: vitrine com abas ---------- */
+
+const abasVitrine = [...document.querySelectorAll(".vitrine-tab")];
+
+function abrirAba(aba) {
+  abasVitrine.forEach((a) => {
+    const ativa = a === aba;
+    a.setAttribute("aria-selected", String(ativa));
+    a.tabIndex = ativa ? 0 : -1;
+    document.getElementById(a.getAttribute("aria-controls")).hidden = !ativa;
+  });
+}
+
+abasVitrine.forEach((aba, i) => {
+  aba.addEventListener("click", () => abrirAba(aba));
+
+  // setas, Home e End trocam de aba pelo teclado
+  aba.addEventListener("keydown", (e) => {
+    const destino = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: abasVitrine.length - 1 }[e.key];
+    if (destino === undefined) return;
+    e.preventDefault();
+    const proxima = abasVitrine[(destino + abasVitrine.length) % abasVitrine.length];
+    abrirAba(proxima);
+    proxima.focus();
+  });
+});
+
+// Quando a vitrine se aproxima da tela, já baixa as fotos das outras abas
+// para elas aparecerem na hora do clique
+const vitrine = document.querySelector(".vitrine");
+new IntersectionObserver(
+  ([entrada], observador) => {
+    if (!entrada.isIntersecting) return;
+    vitrine.querySelectorAll('img[loading="lazy"]').forEach((img) => (img.loading = "eager"));
+    observador.disconnect();
+  },
+  { rootMargin: "600px 0px" }
+).observe(vitrine);
 
 /* ---------- tela de bloqueio: data e hora de agora ---------- */
 

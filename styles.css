@@ -899,7 +899,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
-  gap: 28px clamp(40px, 8vw, 112px);
+  gap: 28px clamp(32px, 5vw, 72px);
   margin-top: 32px;
 }
 
@@ -927,6 +927,11 @@ h1 {
   width: 112px;
 }
 
+/* logotipos só com o nome (Infinix, Realme): mesma altura visual do Samsung */
+.brand-logo-word {
+  width: 104px;
+}
+
 /* ---------- seções ---------- */
 
 .section {
@@ -952,23 +957,6 @@ h1 {
 .section-head p {
   margin-top: 12px;
   font-size: 1.125rem;
-  color: var(--graphite);
-}
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-}
-
-.card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-
-.card p {
-  margin-top: 8px;
   color: var(--graphite);
 }
 
@@ -1122,6 +1110,10 @@ h1 {
 
 .chip-logo-lg {
   width: 40px;
+}
+
+.chip-logo-word {
+  width: 58px;
 }
 
 .chip input:hover + span {
@@ -1308,37 +1300,142 @@ h1 {
   transform: translate(-16px, -16px);
 }
 
-/* ---------- acessórios ---------- */
+/* ---------- acessórios: vitrine com abas ---------- */
 
-.shop {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+/* categorias: mesmo desenho dos chips de marca do orçamento */
+.vitrine-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
-.shop-item {
+.vitrine-tab {
+  min-height: 44px;
+  padding: 10px 18px;
+  background: none;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius-tag);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.vitrine-tab:hover {
+  border-color: var(--ink);
+}
+
+.vitrine-tab[aria-selected="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.vitrine-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 4vw, 56px);
+  padding: clamp(20px, 3vw, 32px);
+  background: var(--card);
+  border-radius: var(--radius);
+}
+
+.vitrine-info {
   display: flex;
   flex-direction: column;
-  padding: 24px;
 }
 
-.shop-art {
-  aspect-ratio: 16 / 10;
-  margin-bottom: 20px;
+.vitrine-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.vitrine-label {
+  margin: 20px 0 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--pewter);
+}
+
+/* tipos em linhas finas, como uma ficha técnica */
+.tipos li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.tipos li:first-child {
+  border-top: 1px solid var(--hairline);
+}
+
+.vitrine-info .ghost-link {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* quadro de fotos sempre do mesmo tamanho: 1 foto ocupa tudo, 2 ficam lado a lado
+   e, com 3, a primeira fica alta à esquerda */
+.fotos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 8px;
+  align-self: start;
+  aspect-ratio: 4 / 3;
+}
+
+.fotos:has(> :nth-child(2)) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fotos:has(> :nth-child(3)) {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.fotos:has(> :nth-child(3)) > :first-child {
+  grid-row: span 2;
+}
+
+/* o branco das fotos vira a cor do papel (multiply), então fotos de origens
+   diferentes parecem tiradas no mesmo fundo. Foto nova: produto sobre papel branco. */
+.foto {
+  position: relative;
+  margin: 0;
   overflow: hidden;
   background: var(--paper);
   border-radius: 8px;
+  isolation: isolate;
 }
 
-.shop-art img {
+.foto img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  mix-blend-mode: multiply;
 }
 
-.shop-item .ghost-link {
-  margin-top: auto;
-  padding-top: 20px;
+.foto figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 3px 8px;
+  background: var(--card);
+  border-radius: var(--radius-tag);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.vitrine-extra {
+  margin-top: 16px;
+  font-size: 0.9375rem;
+  color: var(--graphite);
 }
 
 /* ---------- lojas: mapa e loja mais perto ---------- */
@@ -1663,13 +1760,6 @@ h1 {
 
 /* ---------- responsivo ---------- */
 
-@media (max-width: 1080px) {
-  .shop {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-}
-
 @media (max-width: 900px) {
   .nav-toggle {
     display: inline-grid;
@@ -1759,14 +1849,24 @@ h1 {
 
   .hero-grid,
   .builder-panel,
+  .vitrine-panel,
   .finder,
   .footer-top {
     grid-template-columns: minmax(0, 1fr);
   }
 
-
-  .bench {
+  .bench,
+  .fotos {
     order: -1;
+  }
+
+  /* 7 marcas: 4 na primeira linha e 3 centralizadas na segunda */
+  .brands {
+    column-gap: 12px;
+  }
+
+  .brands li {
+    flex: 0 0 calc((100% - 36px) / 4);
   }
 
   .diagram {
@@ -1793,9 +1893,29 @@ h1 {
     perspective: 1400px;
   }
 
-  .shop,
   .contact {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-logo-wide,
+  .brand-logo-lg {
+    width: 100%;
+  }
+
+  .brand-logo-word {
+    width: 80%;
+  }
+
+  .foto figcaption {
+    left: 6px;
+    bottom: 6px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
   }
 
   .footer-cols {
