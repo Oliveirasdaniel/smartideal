@@ -1401,6 +1401,11 @@ h1 {
   grid-row: span 2;
 }
 
+/* com 4 fotos o quadro vira 2 x 2 */
+.fotos:has(> :nth-child(4)) > :first-child {
+  grid-row: auto;
+}
+
 /* o branco das fotos vira a cor do papel (multiply), então fotos de origens
    diferentes parecem tiradas no mesmo fundo. Foto nova: produto sobre papel branco. */
 .foto {
